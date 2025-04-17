@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FutureScope AI</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>FutureScope AI Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#career-predictor">Career Predictor</a></li>
+                <li><a href="#aptitude-test">Aptitude Test</a></li>
+                <li><a href="#mentor-connect">Mentor Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="career-predictor" class="dashboard-section">
+        <h2>AI Career Predictor</h2>
+        <p>Input your skills and interests to get AI-driven career recommendations.</p>
+        <button onclick="location.href='ai career predictor.html'">Start Career Test</button>
+    </section>
+
+    
+    
+    <section id="aptitude-test" class="dashboard-section">
+        <h2>Personality & Aptitude Test</h2>
+        <p>Take a short quiz to analyze your strengths and career suitability.</p>
+        <button>Start Test</button>
+    </section>
+    
+    <section id="mentor-connect" class="dashboard-section">
+        <h2>Mentor Connect</h2>
+        <p>Connect with professionals to get real-world insights into your chosen career.</p>
+        <button onclick="location.href='mentorchat.html'">Find a Mentor</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 FutureScope AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('a[href="index.html"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'main.html';
+        });
+    </script>
+</body>
+</html>

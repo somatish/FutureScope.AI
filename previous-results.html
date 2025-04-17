@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Previous Results | FutureScope AI</title>
+  <link rel="stylesheet" href="previous-results.css" />
+</head>
+<body>
+  <header>
+    <h1>🔍 Welcome back!</h1>
+    <p>Your AI-Suggested Career Paths</p>
+    <nav>
+      <a href="main.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="ai career predictor.html">Back</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="results-container">
+      <h2>Results Based on Your Past Tests</h2>
+
+      <!-- Placeholder: Results will be injected here via backend -->
+      <div id="career-results">
+        <p>Loading your personalized career paths...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FutureScope AI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simulate fetching results (you'll replace this with real backend logic later)
+    window.addEventListener('DOMContentLoaded', () => {
+      const resultsContainer = document.getElementById("career-results");
+
+      // Simulated results (will be replaced with backend response)
+      const careerResults = [
+        {
+          title: "Data Scientist",
+          reason: "Excellent performance in analytical and logical reasoning",
+          date: "March 10, 2025"
+        },
+        {
+          title: "UI/UX Designer",
+          reason: "Strong creativity and problem-solving skills",
+          date: "March 5, 2025"
+        }
+      ];
+
+      // Clear loading message
+      resultsContainer.innerHTML = '';
+
+      // Render each result
+      careerResults.forEach(result => {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.innerHTML = `
+          <h3>${result.title}</h3>
+          <p>${result.reason}</p>
+          <small>Test Taken: ${result.date}</small>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

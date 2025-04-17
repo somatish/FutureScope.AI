@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentor Connect Chat - FutureScope AI</title>
+  <link rel="stylesheet" href="mentorchat.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="mentor-list">
+      <h3>Online Mentors</h3>
+      <ul>
+        <li onclick="selectMentor('Dr. Arjun Rao')">Dr. Arjun Rao</li>
+        <li onclick="selectMentor('Ms. Tanya Kapoor')">Ms. Tanya Kapoor</li>
+        <li onclick="selectMentor('Mr. Li Wei')">Mr. Li Wei</li>
+        <li onclick="selectMentor('Prof. Jane Smith')">Prof. Jane Smith</li>
+      </ul>
+    </div>
+
+    <div class="chat-box">
+      <div class="chat-header" id="mentor-name">Select a mentor to chat</div>
+      <div class="messages" id="chat-messages">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="message-input">
+        <input type="text" placeholder="Type your message..." id="messageInput">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentMentor = '';
+    function selectMentor(name) {
+      currentMentor = name;
+      document.getElementById("mentor-name").innerText = "Chatting with " + name;
+      document.getElementById("chat-messages").innerHTML = ""; // clear messages on switch
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const message = input.value.trim();
+      if (message && currentMentor) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "user-msg";
+        msgDiv.innerText = message;
+        document.getElementById("chat-messages").appendChild(msgDiv);
+        input.value = "";
+        document.getElementById("chat-messages").scrollTop = document.getElementById("chat-messages").scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>

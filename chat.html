@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentor Connect Chat</title>
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <header>
+      <h2>🟢 Mentor Connect – Live Chat</h2>
+    </header>
+
+    <div class="chat-window" id="chat-window">
+      <ul id="messages"></ul>
+    </div>
+
+    <form id="chat-form">
+      <input id="username" type="text" placeholder="Your Name" required />
+      <input id="message-input" type="text" placeholder="Type a message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Career Predictor</title>
+  <link rel="stylesheet" href="subject-selection.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #0056b3;
+    }
+
+    nav ul li {
+      margin: 0 1em;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2em;
+      text-align: center;
+    }
+
+    .modal {
+      display: block;
+      position: relative;
+      padding: 2em;
+      background-color: #f9f9f9;
+      margin: 2em auto;
+      max-width: 600px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content {
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0.5em;
+      right: 1em;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      text-align: left;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5em;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Career Predictor</h1>
+    <nav>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="ai-career-predictor.html">Career Test</a></li>
+        <li><a href="career-options.html">Back</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <h2>Enter Subjects and Percentages</h2>
+        <table id="subject-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Percentage</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" placeholder="Enter Subject" /></td>
+              <td><input type="text" placeholder="Enter Percentage" /></td>
+              <td><button class="add-row">Add</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="submit-btn">Submit</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FutureScope AI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const table = document.getElementById('subject-table').getElementsByTagName('tbody')[0];
+      const submitBtn = document.getElementById('submit-btn');
+      const closeBtn = document.getElementById('close-btn');
+
+      function createRow() {
+        const newRow = table.insertRow();
+        const subjectCell = newRow.insertCell(0);
+        const percentageCell = newRow.insertCell(1);
+        const actionCell = newRow.insertCell(2);
+
+        subjectCell.innerHTML = '<input type="text" placeholder="Enter Subject" />';
+        percentageCell.innerHTML = '<input type="text" placeholder="Enter Percentage" />';
+        actionCell.innerHTML = '';
+
+        updateAddButton();
+      }
+
+      function updateAddButton() {
+        // Remove existing add buttons
+        const addButtons = table.querySelectorAll('.add-row');
+        addButtons.forEach(btn => btn.remove());
+
+        // Add add button to the last row
+        const lastRow = table.rows[table.rows.length - 1];
+        const actionCell = lastRow.cells[2];
+        const addButton = document.createElement('button');
+        addButton.textContent = 'Add';
+        addButton.className = 'add-row';
+        addButton.addEventListener('click', createRow);
+        actionCell.appendChild(addButton);
+      }
+
+      // Initialize the add button
+      updateAddButton();
+
+      submitBtn.addEventListener('click', function () {
+        alert('Subjects submitted!');
+        // Additional submission logic can be added here
+      });
+
+      closeBtn.addEventListener('click', function () {
+        // Logic to close the modal or perform other actions
+        alert('Modal closed!');
+      });
+    });
+  </script>
+</body>
+</html>
